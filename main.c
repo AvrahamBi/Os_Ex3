@@ -13,13 +13,11 @@ int isSameChar(char *c1, char *c2) {
     if ((97 <= *c1 && *c1 <= 122 || 65 <= *c1 && *c1 <= 90) &&
             (97 <= *c2 && *c2 <= 122 || 65 <= *c2 && *c2 <= 90)) {
         if(abs(*c1 - *c2) == 32) {
-            printf("The same");
             return 1;
         }
     }
     return 0;
 }
-
 
 int main( int argc, char *argv[] ) {
     int isIdentical = 1, isSimilar = 1;
