@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
-
+#define SIZE 151
 
 // case insensitive
 int isSameChar(char *c1, char *c2) {
@@ -20,10 +20,63 @@ int isSameChar(char *c1, char *c2) {
     return 0;
 }
 
-int main(int argc, char *argv[]) {
-    char* f = argv[1];
-    printf("\n%s\n", argv[1]);
-    return 0;
+
+int main( int argc, char *argv[] ) {
+    int isIdentical = 1, isSimilar = 1;
+    int file1Fd, file2Fd;
+    char buffer1[SIZE], buffer2[SIZE];
+    int numOfBytesFile1 = 0, totalBytesFile1 = 0;
+    int numOfBytesFile2 = 0, totalBytesFile2 = 0;
+
+    file1Fd = open(argv[1], O_RDONLY);
+    if (file1Fd < 0) { printf("open Failed");}
+    file2Fd = open(argv[2], O_RDONLY);
+    if (file2Fd < 0) { printf("open Failed");}
+
+    int x = 0;
+    while (x < SIZE) {
+        numOfBytesFile1 = read(file1Fd, buffer1 + totalBytesFile1, 1);
+        totalBytesFile1 += numOfBytesFile1;
+        numOfBytesFile2 = read(file2Fd, buffer2 + totalBytesFile2, 1);
+        totalBytesFile2 += numOfBytesFile2;
+        x++;
+    }
+    printf("%s\n", buffer1);
+    printf("%s\n", buffer2);
+    close(file1Fd);
+    close(file2Fd);
+    char char1, char2;
+    int offset1 = 0, offset2 = 0;
+    int i = 0;
+    for (; i < SIZE; i++) {
+        char1 = buffer1[i + offset1];
+        char2 = buffer2[i + offset2];
+        // if the two chars are identical
+        if (char1 == char2) {
+            continue;
+        } else {
+            isIdentical = 0;
+            // 13 is the ascii value of \n, 32 is the ascii value of space
+            if ((char1 == 13 || char1 == 32) && (char2 == 13 || char2 == 32)) {
+                continue;
+            }
+            if (char1 == 13 || char1 == 32) {
+                offset2--;
+                continue;
+            }
+            if (char2 == 13 || char2 == 32) {
+                offset1--;
+                continue;
+            }
+            if(isSameChar(char1, char2)) {
+                continue;
+            } else {
+                isSimilar = 0;
+                return 2;
+            }
+        }
+    }
+    if(isIdentical) {return 1;}
+    if(isSimilar) {return 3;}
+    return 2;
 }
-
-
