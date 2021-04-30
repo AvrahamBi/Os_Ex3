@@ -51,32 +51,36 @@ int main( int argc, char *argv[] ) {
     for (; i < SIZE; i++) {
         char1 = buffer1[i + offset1];
         char2 = buffer2[i + offset2];
+
+        // if files end
+        if (!char1 && !char2) {break;}
         // if the two chars are identical
         if (char1 == char2) {
             continue;
         } else {
             isIdentical = 0;
             // 13 is the ascii value of \n, 32 is the ascii value of space
-            if ((char1 == 13 || char1 == 32) && (char2 == 13 || char2 == 32)) {
+            if ((char1 == '\r' || char1 == '\n' || char1 == 32)
+                && (char2 == '\r' || char2 == '\n' || char2 == 32)) {
                 continue;
             }
-            if (char1 == 13 || char1 == 32) {
+            if (char1 == '\r' || char1 == '\n' || char1 == 32) {
                 offset2--;
                 continue;
             }
-            if (char2 == 13 || char2 == 32) {
+            if (char2 == '\r' || char2 == '\n' || char2 == 32) {
                 offset1--;
                 continue;
             }
-            if(isSameChar(char1, char2)) {
+            if(isSameChar(&char1, &char2)) {
                 continue;
             } else {
                 isSimilar = 0;
+                printf("different");
                 return 2;
             }
         }
     }
-    if(isIdentical) {return 1;}
-    if(isSimilar) {return 3;}
-    return 2;
+    if(isIdentical) {printf("identical"); return 1;}
+    if(isSimilar) {printf("same"); return 3;}
 }
