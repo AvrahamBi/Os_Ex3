@@ -3,4 +3,4 @@ project(Os_Ex3 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Os_Ex3 main.c)
+add_executable(Os_Ex3 ex31.c)

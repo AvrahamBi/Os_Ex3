@@ -27,6 +27,7 @@ int main( int argc, char *argv[] ) {
     int numOfBytesFile2 = 0, totalBytesFile2 = 0;
 
     file1Fd = open(argv[1], O_RDONLY);
+    //file1Fd = open('C:\\Users\\hazak\\CLionProjects\\Os_Ex3', O_RDONLY);
     if (file1Fd < 0) { printf("open Failed");}
     file2Fd = open(argv[2], O_RDONLY);
     if (file2Fd < 0) { printf("open Failed");}
@@ -74,11 +75,17 @@ int main( int argc, char *argv[] ) {
                 continue;
             } else {
                 isSimilar = 0;
-                printf("different");
+                //printf("different\n");
                 return 2;
             }
         }
     }
-    if(isIdentical) {printf("identical"); return 1;}
-    if(isSimilar) {printf("same"); return 3;}
+    if(isIdentical) {
+        //printf("identical\n");
+        return 1;
+    }
+    if(isSimilar) {
+        //printf("same\n");
+        return 3;
+    }
 }
