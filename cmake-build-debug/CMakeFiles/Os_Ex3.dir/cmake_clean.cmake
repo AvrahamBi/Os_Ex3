@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Os_Ex3.dir/main.c.o"
+  "CMakeFiles/Os_Ex3.dir/ex31.c.o"
   "Os_Ex3"
   "Os_Ex3.pdb"
 )

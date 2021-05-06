@@ -123,32 +123,32 @@ Os_Ex3/fast:
 	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/build
 .PHONY : Os_Ex3/fast
 
-main.o: main.c.o
+ex31.o: ex31.c.o
 
-.PHONY : main.o
+.PHONY : ex31.o
 
 # target to build an object file
-main.c.o:
-	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/main.c.o
-.PHONY : main.c.o
+ex31.c.o:
+	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/ex31.c.o
+.PHONY : ex31.c.o
 
-main.i: main.c.i
+ex31.i: ex31.c.i
 
-.PHONY : main.i
+.PHONY : ex31.i
 
 # target to preprocess a source file
-main.c.i:
-	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/main.c.i
-.PHONY : main.c.i
+ex31.c.i:
+	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/ex31.c.i
+.PHONY : ex31.c.i
 
-main.s: main.c.s
+ex31.s: ex31.c.s
 
-.PHONY : main.s
+.PHONY : ex31.s
 
 # target to generate assembly for a file
-main.c.s:
-	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/main.c.s
-.PHONY : main.c.s
+ex31.c.s:
+	$(MAKE) -f CMakeFiles/Os_Ex3.dir/build.make CMakeFiles/Os_Ex3.dir/ex31.c.s
+.PHONY : ex31.c.s
 
 # Help Target
 help:
@@ -159,9 +159,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Os_Ex3"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... ex31.o"
+	@echo "... ex31.i"
+	@echo "... ex31.s"
 .PHONY : help
 
 

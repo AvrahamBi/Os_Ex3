@@ -57,27 +57,27 @@ include CMakeFiles/Os_Ex3.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Os_Ex3.dir/flags.make
 
-CMakeFiles/Os_Ex3.dir/main.c.o: CMakeFiles/Os_Ex3.dir/flags.make
-CMakeFiles/Os_Ex3.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/hazak/CLionProjects/Os_Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Os_Ex3.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Os_Ex3.dir/main.c.o   -c /mnt/c/Users/hazak/CLionProjects/Os_Ex3/main.c
+CMakeFiles/Os_Ex3.dir/ex31.c.o: CMakeFiles/Os_Ex3.dir/flags.make
+CMakeFiles/Os_Ex3.dir/ex31.c.o: ../ex31.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/mnt/c/Users/hazak/CLionProjects/Os_Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Os_Ex3.dir/ex31.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Os_Ex3.dir/ex31.c.o   -c /mnt/c/Users/hazak/CLionProjects/Os_Ex3/ex31.c
 
-CMakeFiles/Os_Ex3.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Os_Ex3.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/hazak/CLionProjects/Os_Ex3/main.c > CMakeFiles/Os_Ex3.dir/main.c.i
+CMakeFiles/Os_Ex3.dir/ex31.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Os_Ex3.dir/ex31.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /mnt/c/Users/hazak/CLionProjects/Os_Ex3/ex31.c > CMakeFiles/Os_Ex3.dir/ex31.c.i
 
-CMakeFiles/Os_Ex3.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Os_Ex3.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/hazak/CLionProjects/Os_Ex3/main.c -o CMakeFiles/Os_Ex3.dir/main.c.s
+CMakeFiles/Os_Ex3.dir/ex31.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Os_Ex3.dir/ex31.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /mnt/c/Users/hazak/CLionProjects/Os_Ex3/ex31.c -o CMakeFiles/Os_Ex3.dir/ex31.c.s
 
 # Object files for target Os_Ex3
 Os_Ex3_OBJECTS = \
-"CMakeFiles/Os_Ex3.dir/main.c.o"
+"CMakeFiles/Os_Ex3.dir/ex31.c.o"
 
 # External object files for target Os_Ex3
 Os_Ex3_EXTERNAL_OBJECTS =
 
-Os_Ex3: CMakeFiles/Os_Ex3.dir/main.c.o
+Os_Ex3: CMakeFiles/Os_Ex3.dir/ex31.c.o
 Os_Ex3: CMakeFiles/Os_Ex3.dir/build.make
 Os_Ex3: CMakeFiles/Os_Ex3.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/mnt/c/Users/hazak/CLionProjects/Os_Ex3/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Os_Ex3"

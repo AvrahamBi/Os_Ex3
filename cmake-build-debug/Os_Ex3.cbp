@@ -76,7 +76,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/mnt/c/Users/hazak/CLionProjects/Os_Ex3/main.c">
+		<Unit filename="/mnt/c/Users/hazak/CLionProjects/Os_Ex3/ex31.c">
 			<Option target="Os_Ex3"/>
 		</Unit>
 		<Unit filename="/mnt/c/Users/hazak/CLionProjects/Os_Ex3/CMakeLists.txt">

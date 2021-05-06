@@ -1,1 +1,1 @@
-/usr/bin/cc -g   CMakeFiles/Os_Ex3.dir/main.c.o  -o Os_Ex3 
+/usr/bin/cc -g   CMakeFiles/Os_Ex3.dir/ex31.c.o  -o Os_Ex3 
