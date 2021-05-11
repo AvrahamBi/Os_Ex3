@@ -5,7 +5,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 #include <fcntl.h>
-#define SIZE 151
+#define MAX_SIZE 150
 
 // case insensitive
 int isSameChar(char *c1, char *c2) {
@@ -22,32 +22,31 @@ int isSameChar(char *c1, char *c2) {
 int main( int argc, char *argv[] ) {
     int isIdentical = 1, isSimilar = 1;
     int file1Fd, file2Fd;
-    char buffer1[SIZE], buffer2[SIZE];
+    char buffer1[MAX_SIZE], buffer2[MAX_SIZE];
     int numOfBytesFile1 = 0, totalBytesFile1 = 0;
     int numOfBytesFile2 = 0, totalBytesFile2 = 0;
 
     file1Fd = open(argv[1], O_RDONLY);
-    //file1Fd = open('C:\\Users\\hazak\\CLionProjects\\Os_Ex3', O_RDONLY);
     if (file1Fd < 0) { printf("open Failed");}
     file2Fd = open(argv[2], O_RDONLY);
     if (file2Fd < 0) { printf("open Failed");}
 
     int x = 0;
-    while (x < SIZE) {
+    while (x < MAX_SIZE) {
         numOfBytesFile1 = read(file1Fd, buffer1 + totalBytesFile1, 1);
         totalBytesFile1 += numOfBytesFile1;
         numOfBytesFile2 = read(file2Fd, buffer2 + totalBytesFile2, 1);
         totalBytesFile2 += numOfBytesFile2;
         x++;
     }
-    printf("%s\n", buffer1);
-    printf("%s\n", buffer2);
+    //printf("%s\n", buffer1);
+    //printf("%s\n", buffer2);
     close(file1Fd);
     close(file2Fd);
     char char1, char2;
     int offset1 = 0, offset2 = 0;
     int i = 0;
-    for (; i < SIZE; i++) {
+    for (; i < MAX_SIZE; i++) {
         char1 = buffer1[i + offset1];
         char2 = buffer2[i + offset2];
 
