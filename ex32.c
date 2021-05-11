@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <dirent.h>
 #include <fcntl.h>
 #include <string.h>
 #define MAX_SIZE 150
@@ -19,6 +20,7 @@ int main( int argc, char *argv[] ) {
         numOfBytes = read(confiFd, buffer + x, 1);
         x++;
     }
+    close(confiFd);
     // split the buffer into lines
     int i = 0;
     char *delim = "\n";
@@ -34,5 +36,15 @@ int main( int argc, char *argv[] ) {
     printf("2: %s\n", lines[1]);
     printf("3: %s\n", lines[2]);*/
 
+    char *students[MAX_SIZE];
+    i = 0;
+    DIR *dip;
+    struct dirent *dit;
+    dip = opendir(lines[0]);
+    // iterate over the directory
+    while(dit = readdir(dip) != NULL) {
+        // todo, now need to iterate over the students directories and search for c file to compile and run
+
+    }
 
 }
