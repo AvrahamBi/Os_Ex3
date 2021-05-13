@@ -36,14 +36,29 @@ int main( int argc, char *argv[] ) {
     printf("2: %s\n", lines[1]);
     printf("3: %s\n", lines[2]);*/
 
+    int NO_C_FILE = 1, COMPILATION_ERROR = 1, TIMEOUT = 1, WRONG = 1, SIMILAR = 1, EXCELLENT = 1;
     char *students[MAX_SIZE];
     i = 0;
     DIR *dip;
+    DIR *studentDip;
     struct dirent *dit;
+    struct dirent *studentDit;
     dip = opendir(lines[0]);
+    char* nameOfStudent;
+    char* fileName;
     // iterate over the directory
-    while(dit = readdir(dip) != NULL) {
-        // todo, now need to iterate over the students directories and search for c file to compile and run
+    while(dit = readdir(dip)/* != NULL*/) {
+        nameOfStudent = dit->d_name;
+        studentDip = opendir(nameOfStudent);
+        // TODO here need to nullify the grades values
+        // iterate over the files of the student
+        while(studentDit  = readdir(studentDip) /* != NULL*/) {
+            fileName = studentDit->d_name;
+            // if file is a .c file
+            if(strstr(fileName, ".c") != NULL) {
+                NO_C_FILE = 0;
+            }
+        }
 
     }
 
