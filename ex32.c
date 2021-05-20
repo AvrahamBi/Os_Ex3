@@ -63,9 +63,11 @@ int main( int argc, char *argv[] ) {
             // if file is a .c file
             if(!strcmp(strrchr(fileName, '\0') - 2, ".c")) {
                 NO_C_FILE = 0;
-                // todo enter the command to execvp
-                char *command = {"gcc", backupFileName, "", NULL};
-                execvp(command[0], command);
+                // compile the file
+                char *compilationCommand[MAX_SIZE] = {"gcc", backupFileName, NULL};
+                execvp(compilationCommand[0], compilationCommand);
+                // check if compilation succeded
+
 
             } else {
                 // if no .c file found
