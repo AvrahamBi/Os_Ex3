@@ -46,6 +46,11 @@ int main( int argc, char *argv[] ) {
     dip = opendir(lines[0]);
     char* nameOfStudent;
     char* fileName;
+    char* backupFileName;
+    char* grades[MAX_SIZE];
+    char finalGrade[MAX_SIZE];
+    int studentIndex = 0;
+
     // iterate over the directory
     while(dit = readdir(dip)/* != NULL*/) {
         nameOfStudent = dit->d_name;
@@ -54,12 +59,23 @@ int main( int argc, char *argv[] ) {
         // iterate over the files of the student
         while(studentDit  = readdir(studentDip) /* != NULL*/) {
             fileName = studentDit->d_name;
+            backupFileName = studentDit->d_name;
             // if file is a .c file
-            if(strstr(fileName, ".c") != NULL) {
+            if(!strcmp(strrchr(fileName, '\0') - 2, ".c")) {
                 NO_C_FILE = 0;
+                // todo enter the command to execvp
+                char *command = {"gcc", backupFileName, "", NULL};
+                execvp(command[0], command);
+
+            } else {
+                // if no .c file found
+                strcat(strcpy(finalGrade, nameOfStudent), ",0,NO_C_FILE");
+                printf("%s\n", finalGrade);
+                // enter the grade into the grades array
+                grades[studentIndex] = finalGrade;
+                break;
             }
         }
-
+        studentIndex++;
     }
-
 }
