@@ -66,17 +66,22 @@ int main( int argc, char *argv[] ) {
                 // compile the file
                 char *compilationCommand[MAX_SIZE] = {"gcc", backupFileName, NULL};
                 execvp(compilationCommand[0], compilationCommand);
-                // check if compilation succeded
-
-
-            } else {
+                // todo check if compilation failed
+                if ( 1 == 1) {
+                    strcat(strcpy(finalGrade, nameOfStudent), ",10,COMPILATION_ERROR");
+                    // enter the grade into the grades array
+                    grades[studentIndex] = finalGrade;
+                    break;
+                }
                 // if no .c file found
+            } else {
                 strcat(strcpy(finalGrade, nameOfStudent), ",0,NO_C_FILE");
-                printf("%s\n", finalGrade);
                 // enter the grade into the grades array
                 grades[studentIndex] = finalGrade;
                 break;
             }
+            // if compilation succeded
+
         }
         studentIndex++;
     }
