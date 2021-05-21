@@ -66,8 +66,8 @@ int main( int argc, char *argv[] ) {
                 // compile the file
                 char *compilationCommand[MAX_SIZE] = {"gcc", backupFileName, NULL};
                 execvp(compilationCommand[0], compilationCommand);
-                // todo check if compilation failed
-                if ( 1 == 1) {
+                // if compilation failed
+                if ( getenv("$?") < 0) {
                     strcat(strcpy(finalGrade, nameOfStudent), ",10,COMPILATION_ERROR");
                     // enter the grade into the grades array
                     grades[studentIndex] = finalGrade;
