@@ -51,11 +51,12 @@ int main( int argc, char *argv[] ) {
     char finalGrade[MAX_SIZE];
     int studentIndex = 0;
 
-    // iterate over the directory
+    // iterate over the directory of the students
     while(dit = readdir(dip)/* != NULL*/) {
         nameOfStudent = dit->d_name;
         studentDip = opendir(nameOfStudent);
-        // TODO here need to nullify the grades values
+        // nullify the grades
+        NO_C_FILE = 1, COMPILATION_ERROR = 1, TIMEOUT = 1, WRONG = 1, SIMILAR = 1, EXCELLENT = 1;
         // iterate over the files of the student
         while(studentDit  = readdir(studentDip) /* != NULL*/) {
             fileName = studentDit->d_name;
@@ -64,24 +65,23 @@ int main( int argc, char *argv[] ) {
             if(!strcmp(strrchr(fileName, '\0') - 2, ".c")) {
                 NO_C_FILE = 0;
                 // compile the file
+                // todo complete absolute path of: backupFileName
                 char *compilationCommand[MAX_SIZE] = {"gcc", backupFileName, NULL};
-                execvp(compilationCommand[0], compilationCommand);
-                // if compilation failed
-                if ( getenv("$?") < 0) {
+                if (execvp(compilationCommand[0], compilationCommand) < 0) {
+                    // if compilation failed
                     strcat(strcpy(finalGrade, nameOfStudent), ",10,COMPILATION_ERROR");
                     // enter the grade into the grades array
                     grades[studentIndex] = finalGrade;
                     break;
                 }
-                // if no .c file found
-            } else {
-                strcat(strcpy(finalGrade, nameOfStudent), ",0,NO_C_FILE");
-                // enter the grade into the grades array
-                grades[studentIndex] = finalGrade;
-                break;
             }
-            // if compilation succeded
-
+        }
+        // if no .c file found
+        if (NO_C_FILE == 1) {
+            strcat(strcpy(finalGrade, nameOfStudent), ",0,NO_C_FILE");
+            // enter the grade into the grades array
+            grades[studentIndex] = finalGrade;
+            break;
         }
         studentIndex++;
     }
